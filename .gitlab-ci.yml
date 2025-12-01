@@ -1,0 +1,11 @@
+include:
+  - remote: 'https://raw.githubusercontent.com/ika-rwth-aachen/docker-ros/main/.gitlab-ci/docker-ros.yml'
+
+variables:
+  BASE_IMAGE: nvcr.io/nvidia/tensorrt:25.03-py3
+  ROS_DISTRO: jazzy
+  RMW_IMPLEMENTATION: rmw_zenoh_cpp
+  COMMAND: ros2 launch depth_anything_v3 depth_anything_v3.launch.py
+  PLATFORM: amd64
+  TARGET: dev,run
+  TARGET_CMAKE_ARGS : '-DCMAKE_EXPORT_COMPILE_COMMANDS=1'
