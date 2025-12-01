@@ -1,4 +1,4 @@
-# Depth Anything V3 TensorRT ROS2 Node
+# Depth Anything V3 TensorRT ROS 2 Node
 
 
 
@@ -7,7 +7,7 @@ https://github.com/user-attachments/assets/d119d3b8-bba1-43a3-9f86-75db24e01235
 
 
 
-A ROS2 node for Depth Anything V3 depth estimation using TensorRT for real-time inference. This node subscribes to camera image and camera info topics and publishes directly both, a metric depth image and `PointCloud2` point cloud.
+A ROS 2 node for Depth Anything V3 depth estimation using TensorRT for real-time inference. This node subscribes to camera image and camera info topics and publishes directly both, a metric depth image and `PointCloud2` point cloud.
 
 
 ## Features
@@ -26,12 +26,12 @@ A ROS2 node for Depth Anything V3 depth estimation using TensorRT for real-time 
 
 ## Dependencies
 - Tested with image `nvcr.io/nvidia/tensorrt:25.08-py3`
-  - Ubuntu 24.04, ROS2 Jazzy
+  - Ubuntu 24.04, ROS 2 Jazzy
   - CUDA 13
   - TensorRT 10.9
   
 - Tested with image `nvcr.io/nvidia/tensorrt:25.03-py3`
-  - Ubuntu 24.04, ROS2 Jazzy
+  - Ubuntu 24.04, ROS 2 Jazzy
   - CUDA 12.8.1
   - TensorRT 10.9
 
@@ -154,7 +154,7 @@ We recommend to use the docker image in combination with our other tools for Doc
 ## Building
 
 ```bash
-# From your ROS2 workspace
+# From your ROS 2 workspace
 colcon build --packages-select depth_anything_v3 --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
 ```
@@ -254,7 +254,7 @@ This project is licensed under the Apache License, Version 2.0 - see the [LICENS
 ## Acknowledgements
 Thanks to the following repositories for inspiration:
 
-- [ROS2 MoGE TRT Node](https://github.com/ika-rwth-aachen/ros2-moge-trt/tree/main)
+- [ROS 2 MoGE TRT Node](https://github.com/ika-rwth-aachen/ros2-moge-trt/tree/main)
 - [Depth-Anything-V3](https://github.com/ByteDance-Seed/depth-anything-3)
 - [Monocular_Depth_Estimation_TRT](https://github.com/yester31/Monocular_Depth_Estimation_TRT)
 - [DepthAnything-ROS](https://github.com/scepter914/DepthAnything-ROS)
