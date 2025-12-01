@@ -5,8 +5,8 @@ This directory should contain the Depth Anything V3 ONNX files or prebuilt Tenso
 ## Required Files
 
 Place your Depth Anything V3 ONNX or engine file here (update the config path accordingly), for example:
-- `depth_anything_v3_vitl.onnx`
-- `depth_anything_v3_vitl.fp16-batch1.engine`
+- `DA3METRIC-LARGE.onnx`
+- `DA3METRIC-LARGE.fp16-batch1.engine`
 
 ## Model Format
 

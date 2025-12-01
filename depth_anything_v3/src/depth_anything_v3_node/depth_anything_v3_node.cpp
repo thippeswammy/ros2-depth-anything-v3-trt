@@ -59,7 +59,7 @@ DepthAnythingV3Node::DepthAnythingV3Node(const rclcpp::NodeOptions & node_option
     this->add_on_set_parameters_callback(std::bind(&DepthAnythingV3Node::onSetParam, this, _1));
   
   node_param_.onnx_path = declare_parameter<std::string>(
-    "onnx_path", "models/depth_anything_v3_vitl.fp16-batch1.engine");
+    "onnx_path", "models/DA3METRIC-LARGE.fp16-batch1.engine");
   node_param_.precision = declare_parameter<std::string>("precision", "fp16");
   
   // Debug parameters
