@@ -8,6 +8,40 @@ https://github.com/user-attachments/assets/d119d3b8-bba1-43a3-9f86-75db24e01235
 
 
 A ROS 2 node for Depth Anything V3 depth estimation using TensorRT for real-time inference. This node subscribes to camera image and camera info topics and publishes directly both, a metric depth image and `PointCloud2` point cloud.
+<!-- omit from toc -->
+## Overview
+
+- [Features](#features)
+- [Dependencies](#dependencies)
+- [Topics](#topics)
+  - [Subscribed Topics](#subscribed-topics)
+  - [Published Topics](#published-topics)
+- [Parameters](#parameters)
+  - [Model Configuration](#model-configuration)
+  - [Sky Handling](#sky-handling)
+  - [Point Cloud Configuration](#point-cloud-configuration)
+  - [Debug Configuration](#debug-configuration)
+- [Usage](#usage)
+  - [Basic Launch](#basic-launch)
+  - [With Custom Topics](#with-custom-topics)
+  - [With Debug Enabled](#with-debug-enabled)
+- [Model Preparation](#model-preparation)
+- [Docker Image](#docker-image)
+- [Building](#building)
+- [Performance](#performance)
+- [Architecture](#architecture)
+- [Depth Postprocessing Pipeline](#depth-postprocessing-pipeline)
+  - [1. Depth Extraction](#1-depth-extraction)
+  - [2. Focal Length Scaling](#2-focal-length-scaling)
+  - [3. Sky Handling](#3-sky-handling)
+  - [4. Resolution Upscaling](#4-resolution-upscaling)
+  - [5. Point Cloud Generation](#5-point-cloud-generation)
+- [Troubleshooting](#troubleshooting)
+  - [Common Issues](#common-issues)
+  - [Debug Mode](#debug-mode)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+
 
 
 ## Features
@@ -116,7 +150,9 @@ ros2 launch depth_anything_v3 depth_anything_v3.launch.py \
 
 ## Model Preparation
 
-1. **Obtain the model**: Download the ONNX file from Huggingface: [https://huggingface.co/TillBeemelmanns/Depth-Anything-V3-ONNX](https://huggingface.co/TillBeemelmanns/Depth-Anything-V3-ONNX)
+1. **Obtain the ONNX model (Two Options)**:
+   A.  Download the ONNX file from Huggingface: [https://huggingface.co/TillBeemelmanns/Depth-Anything-V3-ONNX](https://huggingface.co/TillBeemelmanns/Depth-Anything-V3-ONNX)
+   B.  Generate ONNX following the instruction [here](onnx/README.md)
 2. **Place model file**: Put the ONNX/engine file in the `models/` directory
 3. **Update configuration**: Modify `config/depth_anything_v3.param.yaml` with the correct model path
 
