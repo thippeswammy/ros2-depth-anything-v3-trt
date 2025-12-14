@@ -17,12 +17,13 @@
 # Usage: ./generate_engines.sh [models_directory]
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
+WORKSPACE_DIR="$( cd "$SCRIPT_DIR/../.." && pwd )"
 MODELS_DIR="${1:-${SCRIPT_DIR}/depth_anything_v3/models}"
 
 echo "Sourcing the built workspace..."
-source install/setup.bash
+source "$WORKSPACE_DIR/install/setup.bash"
 
 echo "Generating TensorRT engines..."
-./install/depth_anything_v3/lib/depth_anything_v3/generate_engines "${MODELS_DIR}"
+"$WORKSPACE_DIR/install/depth_anything_v3/lib/depth_anything_v3/generate_engines" "${MODELS_DIR}"
 
 echo "Done! Engine files have been generated in ${MODELS_DIR}"
