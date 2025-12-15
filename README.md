@@ -184,7 +184,7 @@ source install/setup.bash
 ## Performance
 The node is optimized for real-time performance.
 
-Performance on RTX 6000:
+Performance on Quadro RTX 6000:
 - **DA3METRIC-LARGE**: 50 FPS
 
 ## Architecture
