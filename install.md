@@ -30,12 +30,17 @@ source .venv/bin/activate
 ### Install Python Dependencies
 ```bash
 pip install --upgrade pip
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118  # Adjust CUDA version as needed
-pip install opencv-python onnx onnxruntime-gpu
-# Install TensorRT python bindings matching your TRT version if not using the tarball method extensively
-# pip install tensorrt
+
+# Core dependencies for helper scripts (republish_images.py, test_publisher.py)
+pip install numpy opencv-python
+
+# Dependencies for ONNX/TensorRT operations (if needed)
+pip install onnx onnxruntime-gpu
+
+# PyTorch (Optional: only if you need to export models yourself)
+# pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 ```
-*Note: If you are using a TensorRT tarball, ensure you extract it and set `LD_LIBRARY_PATH` correctly (handled by `setup_env.sh` below).*
+*Note: ROS2 packages like `rclpy` and `cv_bridge` are provided by the sourced ROS environment (`source /opt/ros/humble/setup.bash`).*
 
 ## 3. Build the ROS2 Package
 ```bash

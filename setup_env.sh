@@ -1,6 +1,9 @@
 #!/bin/bash
 # Source this file to setup the environment for ros2-depth-anything-v3-trt
 
+# 0. Define Workspace Directory
+WORKSPACE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )"
+
 # 1. Activate Virtual Environment
 if [ -f "$WORKSPACE_DIR/.venv/bin/activate" ]; then
     source "$WORKSPACE_DIR/.venv/bin/activate"
@@ -10,8 +13,7 @@ fi
 
 # 2. Add TensorRT libraries to LD_LIBRARY_PATH
 # Get the absolute path to the workspace root (assuming script is in root)
-WORKSPACE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." && pwd )"
-TRT_LIB_PATH="$WORKSPACE_DIR/.venv/lib/python3.10/site-packages/tensorrt_libs"
+ TRT_LIB_PATH="$WORKSPACE_DIR/.venv/lib/python3.10/site-packages/tensorrt_libs"
 
 if [ -d "$TRT_LIB_PATH" ]; then
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TRT_LIB_PATH
